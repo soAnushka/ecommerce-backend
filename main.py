@@ -3,7 +3,7 @@ from routes import product_routes, order_routes
 
 app = FastAPI(
     title="E-commerce Backend",
-    description="A sample backend for HROne Internship task using FastAPI + MongoDB",
+    description="E-commerce backend project using FastAPI + MongoDB",
     version="1.0.0"
 )
 
@@ -14,4 +14,8 @@ app.include_router(order_routes.router)
 # Optional root route
 @app.get("/")
 def read_root():
-    return {"message": "Welcome to the E-commerce Backend!"}
+    return {
+        "message": "Welcome to the E-commerce Backend!",
+        "swagger_docs": "/docs",
+        "redoc_docs": "/redoc"
+    }
